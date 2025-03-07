@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall Construction Tracker</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: url('/static/images/the_wall_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+        input[type="text"], input[type="file"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #287fa7;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3db7f0;
+        }
+        .output {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"The Wall" Construction Tracker </h1>
+        <img src="/static/images/winter_is_coming.png"
+            style="width: 460px; height: 450px; float: right;">
+        <div>
+            <div>
+                <label for="profile_id">Profile ID:</label>
+                <br>
+                <input type="number" id="profile_id" placeholder='Profile to check. Ex. "1"' min="1">
+                <br>
+                <label for="day">Day Number:</label>
+                <br>
+                <input type="number" id="day" placeholder='Day to check. Ex. "1"' min="1">
+                <br>
+                <button onclick="getProfileIceAmountOfDay()">Get Ice Amount</button>
+                <button onclick="getProfileCostOfDay()">Get Profile Cost</button>
+
+            </div>
+            <br>
+            <div>
+                <label for="overview_day">Day Cost Overview:</label>
+                <br>
+                <input type="number" id="overview_day" placeholder='Day to check. Ex. "1"' min="1">
+                <br>
+                <button onclick="getOverviewCost()">Get Overview Cost</button>
+            </div>
+            <br>
+            <div>
+                <label for="profile">Profile Cost Overview:</label>
+                <br>
+                <input type="number" id="profile" placeholder='Profile to check. Ex. "1"' min="1">
+                <br>
+                <button onclick="getProfileCost()">Get Profile Cost</button>
+            </div>
+            <br>
+            <div>
+                <label>Total Cost Overview:</label>
+                <br>
+                <button onclick="getTotalCost()">Get Total Cost</button>
+            </div>
+            <h3>Result:</h3>
+            <div class="output" id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        function handleResponse(response) {
+            response.json().then(data => {
+                const output = document.getElementById("output");
+                output.innerHTML = JSON.stringify(data, null, 2);
+            });
+        }
+
+        function getProfileIceAmountOfDay() {
+            const profileId = document.getElementById("profile_id").value;
+            const day = document.getElementById("day").value;
+            fetch(`/profiles/${profileId}/days/${day}/`)
+                .then(response => handleResponse(response))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getProfileCostOfDay() {
+            const profileId = document.getElementById("profile_id").value;
+            const day = document.getElementById("day").value;
+            fetch(`/profiles/${profileId}/overview/${day}/`)
+                .then(response => handleResponse(response))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getOverviewCost() {
+            const overviewDay = document.getElementById("overview_day").value;
+            fetch(`/profiles/overview/${overviewDay}/`)
+                .then(response => handleResponse(response))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getProfileCost() {
+            const profileId = document.getElementById("profile").value;
+            fetch(`/profiles/${profileId}/overview/`)
+                .then(response => handleResponse(response))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getTotalCost() {
+            fetch('/profiles/overview/')
+                .then(response => handleResponse(response))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
