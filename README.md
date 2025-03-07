@@ -5,7 +5,7 @@
 Work assignment requirements fully covered.
 Assignment content at the bottom of this readme.
 
-> Thanks for the entertaining task, GoT for the win, much appritiated! 
+> Thanks for the entertaining task, Got for the win, much appreciated! 
 
 ### Work Notes:
 - Decided to keep the business logic outside of the model classes for separation of concerns.
@@ -17,7 +17,10 @@ Assignment content at the bottom of this readme.
 - API for Overall cost of a profile
 - Web interface on homepage (http://localhost:8000/) that uses all of the APIs 
 
-> Note: Implemented in html (shame) but does the job
+> Note: Implemented in html but does the job ... shame :)
+
+![SHAME](https://github.com/user-attachments/assets/b1c39375-01ae-4f7b-aa2f-09eb478e23c3)
+
 
 ## Usage
 
