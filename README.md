@@ -12,6 +12,7 @@ Assignment content at the bottom of this readme.
 - Tables created for `Day` and `Profile` - chosen segmentation based on above statement.
 - A separate custom manage.py command added to execute the business logic and store the data.
 - Logging added using the integrated django logging for both requests and business logic.
+- Sepparate logger (not the jango integratd one, for diversity) added to each Section instance.
 
 ### Extras:
 - API for Overall cost of a profile
@@ -47,8 +48,22 @@ Web interface available at http://localhost:8000/
 
 ### Logging
 
-Runtime and custom command logging are using `logs\TheWall_web.log` file for logging events.
-Each section stores a log file to track it's build under `logs\Profile_N-Section_N.log`.
+- Runtime and custom command logging are using `logs\TheWall_web.log` file for logging events.
+Format of the main log:
+```
+INFO 2025-03-10 10:21:00 construction_manager Profile 1 stored in the database.
+INFO 2025-03-10 10:21:00 construction_manager Profile 2 stored in the database.
+INFO 2025-03-10 10:21:00 construction_manager Profile 3 stored in the database.
+INFO 2025-03-10 10:23:16 autoreload Watching for file changes with StatReloader
+INFO 2025-03-10 10:23:26 basehttp "GET / HTTP/1.1" 200 5204
+INFO 2025-03-10 10:23:36 basehttp "GET /profiles/overview/ HTTP/1.1" 200 32
+INFO 2025-03-10 10:23:43 basehttp "GET /profiles/1/days/1/ HTTP/1.1" 200 30
+INFO 2025-03-10 10:23:44 basehttp "GET /profiles/1/overview/1/ HTTP/1.1" 200 28
+INFO 2025-03-10 10:23:48 basehttp "GET /profiles/overview/1/ HTTP/1.1" 200 28
+INFO 2025-03-10 10:23:50 basehttp "GET /profiles/1/overview/ HTTP/1.1" 200 31
+```
+
+- Each section stores a log file to track it's build under `logs\Profile_N-Section_N.log`.
 Format of section loggers:
 ```
 2025-03-10 10:17:03,589 - INFO - Height at beginning of the day - 22
