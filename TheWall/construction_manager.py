@@ -76,10 +76,11 @@ class ConstructionManager:
         self.crews = self._assemble_crews()
         logger.info(f"Hired construction crews: {self.crews}")
         for num, profile in enumerate(self.construction_parameters, 1):
-            for section in profile:
+            for number, section in enumerate(profile):
                 self.sections.append(
                     Section(
                         crews=[self.crews.pop()],
+                        identifier=f"Profile_{num}-Section_{number}",
                         height=section,
                         profile_id=num,
                         all_crews=self.crews,

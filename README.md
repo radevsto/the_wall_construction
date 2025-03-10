@@ -2,7 +2,7 @@
 
 ## TL;DR;
 
-Work assignment requirements fully covered.
+Work assignment requirements covered (hopefully nothing is missed).
 Assignment content at the bottom of this readme.
 
 > Thanks for the entertaining task, Got for the win, much appreciated! 
@@ -48,6 +48,7 @@ Web interface available at http://localhost:8000/
 ### Logging
 
 Runtime and custom command logging are using `logs\TheWall_web.log` file for logging events.
+Each section stores a log file to track it's build under `logs\Profile_N-Section_N.log`.
 
 ## Infrastructural setup
 
