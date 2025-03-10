@@ -51,4 +51,4 @@ pytestdebug.log
 .env
 
 # Log files
-logs/*
+logs/*.log
