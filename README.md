@@ -67,21 +67,21 @@ INFO 2025-03-10 10:23:50 basehttp "GET /profiles/1/overview/ HTTP/1.1" 200 31
 Format of section loggers:
 ```
 2025-03-10 10:17:03,589 - INFO - Height at beginning of the day - 22
-2025-03-10 10:17:03,590 - INFO - High build - 1
+2025-03-10 10:17:03,590 - INFO - Height build - 1
 2025-03-10 10:17:04,274 - INFO - Height at beginning of the day - 23
-2025-03-10 10:17:04,274 - INFO - High build - 1
+2025-03-10 10:17:04,274 - INFO - Height build - 1
 2025-03-10 10:17:04,309 - INFO - Height at beginning of the day - 24
-2025-03-10 10:17:04,309 - INFO - High build - 1
+2025-03-10 10:17:04,309 - INFO - Height build - 1
 2025-03-10 10:17:04,539 - INFO - Height at beginning of the day - 25
-2025-03-10 10:17:04,539 - INFO - High build - 1
+2025-03-10 10:17:04,539 - INFO - Height build - 1
 2025-03-10 10:17:04,588 - INFO - Height at beginning of the day - 26
-2025-03-10 10:17:04,588 - INFO - High build - 1
+2025-03-10 10:17:04,588 - INFO - Height build - 1
 2025-03-10 10:17:04,838 - INFO - Height at beginning of the day - 27
-2025-03-10 10:17:04,838 - INFO - High build - 1
+2025-03-10 10:17:04,838 - INFO - Height build - 1
 2025-03-10 10:17:05,091 - INFO - Height at beginning of the day - 28
-2025-03-10 10:17:05,091 - INFO - High build - 1
+2025-03-10 10:17:05,091 - INFO - Height build - 1
 2025-03-10 10:17:05,346 - INFO - Height at beginning of the day - 29
-2025-03-10 10:17:05,354 - INFO - High build - 1
+2025-03-10 10:17:05,354 - INFO - Height build - 1
 2025-03-10 10:17:05,356 - INFO - Section Section(identifier='Profile_3-Section_1', crews=[Crew(number=3, section_height=17, busy=True)], all_crews=[Crew(number=6, section_height=17, busy=False), Crew(number=5, section_height=22, busy=False)], height=30, profile_id=3, height_on_day=1, complete=True, logger=<Logger Profile_3-Section_1 (INFO)>) has been complete.
 2025-03-10 10:17:05,357 - INFO - Crew 3 has been released from section Section(identifier='Profile_3-Section_1', crews=[], all_crews=[Crew(number=6, section_height=17, busy=False), Crew(number=5, section_height=22, busy=False), Crew(number=3, section_height=17, busy=False)], height=30, profile_id=3, height_on_day=1, complete=True, logger=<Logger Profile_3-Section_1 (INFO)>).
 
@@ -194,7 +194,7 @@ Story
 - "The White Walkers sleep beneath the ice for thousands of years. And when they
 wake up..."
 - "And when they wake up... what?"
-- "I hope the Wall is high enough."
+- "I hope the Wall is Height enough."
 The Wall is a colossal fortification which is being built to stretch for 100 leagues
 (300 miles) along the northern border of the Seven Kingdoms. Its purpose is to
 defend the realm from the wildlings who live beyond. The Wall is reported to be 30
@@ -211,7 +211,7 @@ You will be given a series of numbers. These numbers represent the initial heigh
 of different mile-long sections of the wall(Wall profile), in feet. Each of these
 sections has its own construction crew that can add 1 foot of height per day. All
 crews work simultaneously (see examples), meaning all sections that aren’t
-completed (are less than 30 feet high) grow by 1 foot every day. When a section of
+completed (are less than 30 feet Height) grow by 1 foot every day. When a section of
 the wall is completed, its crew is relieved. Each foot added uses 195 cubic yards of
 ice. To process one cubic yard, it costs the Night’s Watch 1900 "Gold Dragon"
 coins for salaries and food for the brothers who work on it.

@@ -7,7 +7,7 @@ def test_crew(crew):
     assert crew.busy
 
 
-def test_crew_max_hight(crew_max_height):
+def test_crew_max_height(crew_max_height):
     assert isinstance(crew_max_height.number, int)
     assert crew_max_height.number == 1
     assert isinstance(crew_max_height.section_height, int)

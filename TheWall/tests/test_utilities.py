@@ -1,7 +1,7 @@
 import copy
 import pytest
 import logging
-from TheWall.custom_exceptions import ExceededHighOfSections, ExceededNumberOfSections
+from TheWall.custom_exceptions import ExceededHeightOfSections, ExceededNumberOfSections
 
 
 def test_get_data_valid(cfg_reader_instance):
@@ -20,10 +20,10 @@ def test_get_data_exceeds_sections(cfg_reader_instance):
 
 
 def test_get_data_exceeds_section_height(cfg_reader_instance):
-    """Test that ExceededHighOfSections is raised for excessive heights."""
+    """Test that ExceededHeightOfSections is raised for excessive heights."""
     cfg_r_instance = copy.deepcopy(cfg_reader_instance)
-    cfg_r_instance.required_section_high = 1
-    with pytest.raises(ExceededHighOfSections) as e:
+    cfg_r_instance.required_section_height = 1
+    with pytest.raises(ExceededHeightOfSections) as e:
         cfg_r_instance.get_data()
     assert "contains section/s higher than the limit" in str(e.value)
 

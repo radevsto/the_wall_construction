@@ -60,7 +60,7 @@ class Section:
         profile_id (int): The identifier for the profile associated with this section.
         complete (bool): Indicates whether the section is complete (inferred from initialization).
         numb (int): The height of the section at initialization.
-        height_on_day (int): High built on each iteration.
+        height_on_day (int): Height built on each iteration.
         logger (Logger): logger instance to log in a separate file.
     """
 
@@ -97,7 +97,7 @@ class Section:
         self._prepare_for_build()
         self.logger.info(f"Height at beginning of the day - {self.height}")
         self.height += len(self.crews)
-        self.logger.info(f"High build - {len(self.crews)}")
+        self.logger.info(f"Height build - {len(self.crews)}")
         self.height_on_day = len(self.crews)
         if self.height == self.required_height:
             self.complete = True

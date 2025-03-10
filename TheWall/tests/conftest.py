@@ -3,7 +3,7 @@ import pytest
 import logging
 import tempfile
 from dataclasses import dataclass
-from TheWall.custom_exceptions import ExceededHighOfSections, ExceededNumberOfSections
+from TheWall.custom_exceptions import ExceededHeightOfSections, ExceededNumberOfSections
 from TheWall.utilities import ConfigReader, setup_logger
 from TheWall.construction_management import Crew, Section
 from TheWall.construction_manager import ConstructionManager as BranTheBuilder
@@ -25,8 +25,8 @@ def cfg_reader_instance(cfg_file):
 
 
 @pytest.fixture()
-def exceed_section_high():
-    return ExceededHighOfSections(2, 1)
+def exceed_section_height():
+    return ExceededHeightOfSections(2, 1)
 
 
 @pytest.fixture()

@@ -18,14 +18,14 @@ class ExceededNumberOfSections(Exception):
         super().__init__(self.message)
 
 
-class ExceededHighOfSections(Exception):
+class ExceededHeightOfSections(Exception):
     """
     Exception raised when a profile contains sections higher than the allowed limit.
     """
 
     def __init__(self, limit: int, profile_num: int) -> None:
         """
-        Initialize the ExceededHighOfSections exception with a message.
+        Initialize the ExceededHeightOfSections exception with a message.
 
         Args:
             limit (int): The maximum allowed height for a section.

@@ -1,5 +1,5 @@
 import logging
-from .custom_exceptions import ExceededNumberOfSections, ExceededHighOfSections
+from .custom_exceptions import ExceededNumberOfSections, ExceededHeightOfSections
 
 
 class ConfigReader:
@@ -8,14 +8,14 @@ class ConfigReader:
 
     Attributes:
         max_number_of_sections (int): The maximum number of sections allowed.
-        required_section_high (int): The maximum height allowed for a section.
+        required_section_height (int): The maximum height allowed for a section.
 
     Args:
         construction_doc (str): The path to the input file containing construction parameters.
     """
 
     max_number_of_sections = 2000
-    required_section_high = 30
+    required_section_height = 30
 
     def __init__(self, construction_doc: str) -> None:
         """
@@ -57,7 +57,7 @@ class ConfigReader:
 
         Raises:
             ExceededNumberOfSections: If any profile has more sections than allowed.
-            ExceededHighOfSections: If any section height exceeds the required height.
+            ExceededHeightOfSections: If any section height exceeds the required height.
         """
         input_data = self._get_input()
         for num, profile in enumerate(input_data):
@@ -65,8 +65,8 @@ class ConfigReader:
                 raise ExceededNumberOfSections(
                     len(profile), self.max_number_of_sections, num
                 )
-            if any(sec > self.required_section_high for sec in profile):
-                raise ExceededHighOfSections(self.required_section_high, num)
+            if any(sec > self.required_section_height for sec in profile):
+                raise ExceededHeightOfSections(self.required_section_height, num)
 
         return input_data
 
@@ -81,7 +81,7 @@ class ConfigReader:
 
         Raises:
             ExceededNumberOfSections: If any profile exceeds the maximum number of sections.
-            ExceededHighOfSections: If any section height exceeds the required height.
+            ExceededHeightOfSections: If any section height exceeds the required height.
         """
         return self._validate_input()
 
