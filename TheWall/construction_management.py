@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from .utilities import setup_logger, logger
 
 
-LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",  "logs")
+LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "logs")
 
 
 @dataclass
@@ -117,7 +117,9 @@ class Section:
             crew = self.crews.pop()
             crew.busy = False
             self.all_crews.append(crew)
-            self.logger.info(f"Crew {crew.number} has been released from section {self}.")
+            self.logger.info(
+                f"Crew {crew.number} has been released from section {self}."
+            )
 
     def __post_init__(self) -> None:
         """Post-initialization processing.
@@ -127,7 +129,9 @@ class Section:
         """
         self.complete = False
         self.initial_height = self.height
-        self.logger = setup_logger(name=self.identifier, log_file=f"{LOG_DIR}/{self.identifier}.log")
+        self.logger = setup_logger(
+            name=self.identifier, log_file=f"{LOG_DIR}/{self.identifier}.log"
+        )
         if self.initial_height >= self.required_height:
             self.logger.info(f"Section {self} is already complete.")
             self._release_crew(len(self.crews))

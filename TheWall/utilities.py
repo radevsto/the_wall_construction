@@ -86,7 +86,9 @@ class ConfigReader:
         return self._validate_input()
 
 
-def setup_logger(name: str, log_file: str = 'application.log', level=logging.INFO) -> logging.Logger:
+def setup_logger(
+    name: str, log_file: str = "application.log", level=logging.INFO
+) -> logging.Logger:
     """
     Set up a custom logger.
 
@@ -104,7 +106,7 @@ def setup_logger(name: str, log_file: str = 'application.log', level=logging.INF
     console_handler.setLevel(level)
     file_handler = logging.FileHandler(log_file)
     file_handler.setLevel(level)
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
     console_handler.setFormatter(formatter)
     file_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
