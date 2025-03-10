@@ -5,7 +5,7 @@
 Work assignment requirements covered (hopefully nothing is missed).
 Assignment content at the bottom of this readme.
 
-> Thanks for the entertaining task, Got for the win, much appreciated! 
+> Thanks for the entertaining task, `Game of Thrones` for the win, much appreciated! 
 
 ### Work Notes:
 - Decided to keep the business logic outside of the model classes for separation of concerns.
@@ -49,6 +49,28 @@ Web interface available at http://localhost:8000/
 
 Runtime and custom command logging are using `logs\TheWall_web.log` file for logging events.
 Each section stores a log file to track it's build under `logs\Profile_N-Section_N.log`.
+Format of section loggers:
+```
+2025-03-10 10:17:03,589 - INFO - Height at beginning of the day - 22
+2025-03-10 10:17:03,590 - INFO - High build - 1
+2025-03-10 10:17:04,274 - INFO - Height at beginning of the day - 23
+2025-03-10 10:17:04,274 - INFO - High build - 1
+2025-03-10 10:17:04,309 - INFO - Height at beginning of the day - 24
+2025-03-10 10:17:04,309 - INFO - High build - 1
+2025-03-10 10:17:04,539 - INFO - Height at beginning of the day - 25
+2025-03-10 10:17:04,539 - INFO - High build - 1
+2025-03-10 10:17:04,588 - INFO - Height at beginning of the day - 26
+2025-03-10 10:17:04,588 - INFO - High build - 1
+2025-03-10 10:17:04,838 - INFO - Height at beginning of the day - 27
+2025-03-10 10:17:04,838 - INFO - High build - 1
+2025-03-10 10:17:05,091 - INFO - Height at beginning of the day - 28
+2025-03-10 10:17:05,091 - INFO - High build - 1
+2025-03-10 10:17:05,346 - INFO - Height at beginning of the day - 29
+2025-03-10 10:17:05,354 - INFO - High build - 1
+2025-03-10 10:17:05,356 - INFO - Section Section(identifier='Profile_3-Section_1', crews=[Crew(number=3, section_height=17, busy=True)], all_crews=[Crew(number=6, section_height=17, busy=False), Crew(number=5, section_height=22, busy=False)], height=30, profile_id=3, height_on_day=1, complete=True, logger=<Logger Profile_3-Section_1 (INFO)>) has been complete.
+2025-03-10 10:17:05,357 - INFO - Crew 3 has been released from section Section(identifier='Profile_3-Section_1', crews=[], all_crews=[Crew(number=6, section_height=17, busy=False), Crew(number=5, section_height=22, busy=False), Crew(number=3, section_height=17, busy=False)], height=30, profile_id=3, height_on_day=1, complete=True, logger=<Logger Profile_3-Section_1 (INFO)>).
+
+```
 
 ## Infrastructural setup
 
@@ -112,7 +134,7 @@ All done! ✨ 🍰 ✨
 ### Unit tests execution
 ```
 (the_wall) PS C:\the_wall_construction> pytest --cov=.\TheWall\ --cov-config=tox.ini
-................................                                                                                            [100%]
+....................................                                                                                        [100%]
 
 ---------- coverage: platform win32, python 3.12.8-final-0 -----------
 Name                                                                             Stmts   Miss   Cover   Missing
@@ -120,8 +142,8 @@ Name                                                                            
 TheWall\__init__.py                                                                  0      0 100.00%
 TheWall\admin.py                                                                     0      0 100.00%
 TheWall\apps.py                                                                      4      0 100.00%
-TheWall\construction_management.py                                                  49      0 100.00%
-TheWall\construction_manager.py                                                     77     21  72.73%   117-141, 169-182
+TheWall\construction_management.py                                                  58      0 100.00%
+TheWall\construction_manager.py                                                     77     21  72.73%   118-142, 170-183
 TheWall\custom_exceptions.py                                                         8      0 100.00%
 TheWall\management\__init__.py                                                       0      0 100.00%
 TheWall\management\commands\__init__.py                                              0      0 100.00%
@@ -130,21 +152,21 @@ TheWall\migrations\0002_day_profile_delete_wallprofile_day_profile_and_more.py  
 TheWall\migrations\__init__.py                                                       0      0 100.00%
 TheWall\models.py                                                                   14      0 100.00%
 TheWall\serializers.py                                                              12      0 100.00%
-TheWall\tests\conftest.py                                                           50      0 100.00%
+TheWall\tests\conftest.py                                                           58      0 100.00%
 TheWall\tests\test_construction_management.py                                       53      0 100.00%
 TheWall\tests\test_construction_manager.py                                          33      0 100.00%
 TheWall\tests\test_custom_exceptions.py                                              6      0 100.00%
 TheWall\tests\test_models.py                                                        21      0 100.00%
 TheWall\tests\test_serializers.py                                                   38      0 100.00%
-TheWall\tests\test_utilities.py                                                     23      0 100.00%
+TheWall\tests\test_utilities.py                                                     37      0 100.00%
 TheWall\tests\test_views.py                                                         41      0 100.00%
 TheWall\urls.py                                                                      3      0 100.00%
-TheWall\utilities.py                                                                24      0 100.00%
+TheWall\utilities.py                                                                37      0 100.00%
 TheWall\views.py                                                                    34      0 100.00%
 ---------------------------------------------------------------------------------------------------------------
-TOTAL                                                                              500     21  95.80%
+TOTAL                                                                              544     21  96.14%
 
-32 passed in 2.22s
+36 passed in 2.02s
 (the_wall) PS C:\the_wall_construction> 
 ```
 
