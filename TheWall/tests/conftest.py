@@ -1,9 +1,10 @@
 import os
 import pytest
+import logging
 import tempfile
 from dataclasses import dataclass
 from TheWall.custom_exceptions import ExceededHighOfSections, ExceededNumberOfSections
-from TheWall.utilities import ConfigReader
+from TheWall.utilities import ConfigReader, setup_logger
 from TheWall.construction_management import Crew, Section
 from TheWall.construction_manager import ConstructionManager as BranTheBuilder
 
@@ -69,3 +70,13 @@ def setup_section_complete():
 def construction_manager(cfg_file):
     manager = BranTheBuilder(construction_doc=cfg_file)
     return manager
+
+
+@pytest.fixture()
+def logger_setup():
+    logger = setup_logger('TestLogger', log_file='application.log', level=logging.DEBUG)
+    yield logger
+    # Cleanup after test
+    for handler in logger.handlers:
+        handler.close()
+        logger.removeHandler(handler)

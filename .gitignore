@@ -1,0 +1,54 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+
+# C extension modules
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+lib/
+lib64/
+*.egg-info/
+*.egg
+
+# Django migrations
+*/migrations/*.py
+*/migrations/__pycache__/
+
+# Database
+*.sqlite3
+
+# Local development
+local_settings.py
+db.sqlite3
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Pytest
+.cache
+*.cover
+coverage.xml
+*.coverage
+nosetests.xml
+*.log
+htmlcov/
+.test/
+pytestdebug.log
+.pytest_cache
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Environment variables file
+.env
+
+# Log files
+logs/*

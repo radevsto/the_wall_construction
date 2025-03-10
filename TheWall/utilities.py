@@ -86,4 +86,31 @@ class ConfigReader:
         return self._validate_input()
 
 
+def setup_logger(name: str, log_file: str = 'application.log', level=logging.INFO) -> logging.Logger:
+    """
+    Set up a custom logger.
+
+    Args:
+        name (str): The name of the logger.
+        log_file (str): The file where logs should be saved. Defaults to 'application.log'.
+        level (int): The logging level. Default is INFO.
+
+    Returns:
+        Logger: Configured logger instance.
+    """
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(level)
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setLevel(level)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
+
+
 logger = logging.getLogger("TheWall")
